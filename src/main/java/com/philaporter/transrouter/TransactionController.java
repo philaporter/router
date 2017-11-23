@@ -27,7 +27,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class TransactionController {
     
     private List<Transaction> list;
-    private final String USER_AGENT = "Mozilla/5.0";
     
     @GetMapping("/send")
     public Transaction trigger(@RequestParam String destination) {
@@ -44,7 +43,7 @@ public class TransactionController {
             obj = new URL(url);
             con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("POST");
-            con.setRequestProperty("User-Agent", USER_AGENT);
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
             con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
             con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             ObjectMapper mapper = new ObjectMapper();
